@@ -4,23 +4,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP声明</title>
+<title>JSP脚本</title>
 </head>
+<style>
+	td{
+		padding: 0 5px;
+		width: 150px;
+	}
+</style>
 <body>
-	JSP声明：
-	<%! public int count ;
-		public int print(){
-			System.out.println("中国");
-			return 1024;
-		}
-	%>
-	<% out.println(count++); %>
-	
-	<br/>
-	
-	JSP脚本：<% out.println(print()); %>
-	
-	<br/>
-	JSP表达式：<code><%=count %></code>  <%=count %>
+	<table>
+		<% 
+			for (int i=1;i<=9;i++){
+				out.println("<tr>");
+				for(int j=1;j<=i;j++){
+		%>
+			<td>
+				<%= j%> * <%=i %> = <%=i*j %>
+			</td>
+			
+		<%}  out.println("</tr>"); } %>
+	</table>
 </body>
 </html>
